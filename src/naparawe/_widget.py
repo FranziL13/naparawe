@@ -8,6 +8,8 @@ Replace code below according to your needs.
 """
 from typing import TYPE_CHECKING
 
+from napari.types import ImageData, LayerDataTuple 
+
 from magicgui import magic_factory
 from qtpy.QtWidgets import QHBoxLayout, QPushButton, QWidget
 
@@ -42,5 +44,19 @@ def example_magic_widget(img_layer: "napari.layers.Image"):
 # Uses the `autogenerate: true` flag in the plugin manifest
 # to indicate it should be wrapped as a magicgui to autogenerate
 # a widget.
-def example_function_widget(img_layer: "napari.layers.Image"):
-    print(f"you have selected {img_layer}")
+#def example_function_widget(img_layer: "napari.layers.Image"):
+    #print(f"you have selected {img_layer}")
+    
+def segment_image(image: ImageData) -> LayerDataTuple:
+    """Apply thresholding and connected component analysis"""
+    from skimage.filters import threshold_otsu
+    from skimage.measure import label
+    
+    binary = image > threshold_otsu(image)
+    label_image = label(binary)
+    
+    output_tuple = (label_image, # first parameter of the tuple: data
+                    {'name': 'Output Label Image', 'opacity': 0.3}, # second parameter of the tuple: layer properties
+                    'labels') # third parameter of the tuple: layer type
+    
+    return output_tuple
