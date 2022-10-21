@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/githubuser/naparawe/branch/main/graph/badge.svg)](https://codecov.io/gh/githubuser/naparawe)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/naparawe)](https://napari-hub.org/plugins/naparawe)
 
-A simple plugin to use with napari
+A simple plugin to use with napari to label an image
 
 ----------------------------------
 
