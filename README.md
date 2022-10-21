@@ -22,10 +22,13 @@ https://napari.org/stable/plugins/index.html
 -->
 
 ## Installation
+Please create a new conda environment and install napari 0.4.16 or higher via
+
+conda install -c conda forge napari=0.4.16
 
 You can install `naparawe` via [pip]:
 
-    pip install naparawe
+    pip install git+https://github.com/FranziL13/naparawe.git
 
 
 
